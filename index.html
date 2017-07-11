@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="formApp">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <form class="testForm" name="testForm" ng-controller="formCtrl" ng-submit="submitForm()" novalidate>
+        <div class="testForm__title">
+            Test form
+        </div>
+        <div class="testForm-block">
+            <label for="login">Login</label>
+            <input type="text" name="login" value="" ng-model="login" ng-pattern="/^[a-zA-Z]+$/" required>
+        </div>
+        <div class="testForm-block">
+            <label for="pass">Password ({{password}})</label>
+            <input type="password" name="pass" value="" ng-model="password" ng-minlength="5" ng-model="password" ng-change="confirmPassClear()" required/>
+        </div>
+        <div class="testForm-block">
+            <label for="passConfirm">Confirm password ({{passwordConfirm}})</label>
+            <input type="password" name="passConfirm" ng-model="passwordConfirm" conf-pass="password" value="" required/>
+        </div>
+        <div class=" testForm-block">
+            <label for="phoneCountry">Phone code (country): ({{phone()}})</label>
+            <select name="phoneCountry" ng-change="selectPhoneCode()" ng-model="phoneCountry" required>
+                <option value="ua">Ukraine</option>
+                <option value="ru">Russia</option>
+                <option value="be">Belarus</option>
+                <option value="po">Poland</option>
+                <option value="ro">Romania</option>
+                <option value="md">Moldova</option>
+            </select>
+        </div>
+        <div class="testForm-block ">
+            <label for="phone">Phone number ({{phoneNumber}})</label>
+            <input type="tel" id="phone" name="phone" value="" ng-model="phoneNumber" ng-change="inputPhone()" ng-model-options="{allowInvalid: true}" ng-minlength="10" required/> {{phoneFormat}}
+        </div>
+        <button type="submit" ng-disabled="testForm.$invalid">Submit</button>
+    </form>
+</body>
+
+
+</html>

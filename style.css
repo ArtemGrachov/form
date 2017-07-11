@@ -1,0 +1,63 @@
+body {
+    font-size: 16px;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+.testForm {
+    margin: auto;
+    padding: 25px 15px;
+    width: 550px;
+    border: 1px solid steelblue;
+    border-radius: 10px;
+}
+
+.testForm__title {
+    font-size: 32px;
+    text-align: center;
+    font-weight: bold;
+    margin: 0  0 45px;
+}
+.testForm-block {
+    margin: 20px 0;
+}
+input {
+    padding: 10px;
+    font-size: 16px;
+    width:100%;
+    display: block;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+}
+
+label {
+    padding: 10px 0;
+    width:100%;
+    display: block;
+}
+
+button {
+    padding: 20px;
+    border: 2px solid steelblue;
+    border-radius: 5px;
+    background: lightblue;
+    width: 100%;
+    font-size: 16px;
+}
+
+select {
+    padding: 10px;
+    width: 100%;
+    display: block;
+    background: white;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+}
+
+.ng-dirty .ng-dirty.ng-invalid{
+    color: red;
+    border: 1px solid red;
+}
