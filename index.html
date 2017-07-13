@@ -2,63 +2,55 @@
 <html lang="en" ng-app="formApp" ng-cloak>
 
 <head>
-    <title></title>
+    <title>{{pageTitle}}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="style.css" rel="stylesheet">
-    <script src="angular.min.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="node_modules/angular-cookies/angular-cookies.js"></script>
     <script src="app.js"></script>
+    <script src="ctrl.js"></script>
+    <script src="dir.js"></script>
+    <script src="services.js"></script>
 </head>
 
 <body>
-    <form class="testForm" name="testForm" ng-controller="formCtrl" ng-submit="submitForm()" novalidate>
-        <div class="testForm__title">
-            Test form
-        </div>
-        <div class="testForm-block">
-            <label for="login">Login {{login}}</label>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container">
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li class="nav__item">
+                            <a href="#!/" class="nav__link">News</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#!/dash" ng-show="$root.isAuth()" class="nav__link">Dashboard</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#!/login" ng-show="!$root.isAuth()" class="nav__link">Sign in</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#!/logout" ng-show="$root.isAuth()" class="nav__link">Sign out</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#!/reg" ng-show="!$root.isAuth()" class="nav__link">Registration</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
 
-            <input type="text" name="login" value="" ng-model="login" login-check required>
-            <div style="color: red" ng-show="testForm.login.$dirty && testForm.login.$invalid">
-                <p ng-show="testForm.login.$error.length">Type login</p>
-                <p ng-show="testForm.login.$error.chars">Only latin and cyryllic letters allowed</p>
-            </div>
+        </header>
+        <div class="container">
+            <div ng-view></div>
         </div>
-        <div class="testForm-block">
-            <label for="pass">Password ({{password}})</label>
-            <input type="password" name="pass" value="" ng-model="password" password ng-model="password" required/>
-            <div style="color: red" ng-show="testForm.pass.$dirty && testForm.pass.$invalid">
-                <p ng-show="testForm.pass.$error.length">Password is too short</p>
-            </div>
+
+    </div>
+    <footer class="footer">
+        <div class="container">
+            Tel: 555-55-555 | lorem@ipsum.sit | Officia et ut deserunt elit excepteur cillum irure eu ad consequat nostrud velit eu. (c) 2017
         </div>
-        <div class="testForm-block">
-            <label for="passConfirm">Confirm password ({{passwordConfirm}})</label>
-            <input type="password" name="passConfirm" ng-model="passwordConfirm" password value="" comparing compare-to="password" required/>
-            <div style="color: red" ng-show="testForm.passConfirm.$dirty && testForm.passConfirm.$invalid">
-                <p ng-show="testForm.passConfirm.$error.compare">Confirm the password</p>
-            </div>
-        </div>
-        <div class=" testForm-block">
-            <label for="phoneCountry">Phone code (country): ({{phoneCode}})</label>
-            <select name="phoneCountry" ng-model="phoneCountry" ng-change="selectPhoneCode()" required>
-                <option value="ua">Ukraine</option>
-                <option value="ru">Russia</option>
-                <option value="be">Belarus</option>
-                <option value="po">Poland</option>
-                <option value="ro">Romania</option>
-                <option value="md">Moldova</option>
-            </select>
-        </div>
-        <div class="testForm-block">
-            <label for="phone">Phone number ({{phoneNumber}})</label>
-            <input name="phone" value="" ng-model="phoneNumber" ng-keydown="phoneInput($event)" ng-change="phoneChange('{{phoneNumber}}')" phone-number required/>
-            <div style="color: red" ng-show="testForm.phone.$dirty && testForm.phone.$invalid">
-                <p ng-show="testForm.phone.$error.length">Phone number is too short</p>
-            </div>
-        </div>{{test}}
-        <button type="submit" ng-disabled="testForm.$invalid">Submit</button>
-    </form>
+    </footer>
 </body>
-
 
 </html>

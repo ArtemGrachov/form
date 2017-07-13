@@ -1,0 +1,26 @@
+<form class="form" name="loginForm" ng-controller="loginCtrl" ng-submit="submitForm()" novalidate>
+    <div class="form__title">
+        Sign in {{$cookieStore.get('userAuth')}}
+    </div>
+    <div class="form-block">
+        <label for="login">Login {{login}}</label>
+        <input type="text" name="login" value="" ng-model="login" login-check required>
+        <div style="color: red" ng-show="loginForm.login.$dirty && loginForm.login.$invalid">
+            <p ng-show="loginForm.login.$error.length">Type login</p>
+            <p ng-show="loginForm.login.$error.chars">Only latin and cyryllic letters allowed</p>
+        </div>
+    </div>
+    <div class="form-block">
+        <label for="pass">Password ({{password}})</label>
+        <input type="password" name="pass" value="" ng-model="password" ng-minlength="1" ng-model="password" required/>
+        <div style="color: red" ng-show="loginForm.pass.$dirty && loginForm.pass.$invalid">
+            <p ng-show="loginForm.pass.$error">Type password</p>
+        </div>
+    </div>
+    <div class="to-reg">
+        <a class="to-reg__link" href="#!/reg">Do not have an account?</a>
+    </div>
+
+    <button type="submit" ng-disabled="loginForm.$invalid">Submit</button>
+
+</form>

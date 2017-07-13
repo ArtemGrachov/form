@@ -1,0 +1,24 @@
+{
+  "name": "angular-validation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "angular-route.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArtemGrachov/form.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArtemGrachov/form/issues"
+  },
+  "homepage": "https://github.com/ArtemGrachov/form#readme",
+  "devDependencies": {
+    "angular": "^1.6.5",
+    "angular-cookies": "^1.6.5",
+    "angular-route": "^1.6.5"
+  }
+}

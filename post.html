@@ -1,0 +1,24 @@
+<div class="content" ng-controller="postCtrl">
+    <div class="news__title ">
+        #{{postData.id}} | {{postData.title}}
+    </div>
+    <div class="news__text ">
+        {{postData.body}}
+    </div>
+    Author: {{postAuthor.data.name}}
+    <div class="news-comments">
+        <form class="news-comment-form" ng-show="$root.isAuth()">
+            <a name="comment "></a>
+            <div class="news-comment__title ">
+                Leave a comment
+            </div>
+            <textarea rows="15 "></textarea>
+            <button type="submit">Send</button>
+
+        </form>
+        <div class="warning-block " ng-show="!$root.isAuth()">
+            You have to log in to write a comment
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,32 @@
+<div class="content" ng-controller="newsCtrl">
+    <a href="" class="news-search__toggle" ng-click="newsSearch=!newsSearch">Search...</a>
+    <div class="news-search" ng-show="newsSearch">
+        <label for="searchQuery" class="news-search__title">
+            Serach query:
+        </label>
+        <input type="text" name="searchQuery" value="" ng-model="searchQuery">
+        <label for="sortBy" class="news-search__title">
+            Sort by:
+        </label>
+        <select name="sortBy" ng-model="newsOrder">
+            <option value="id">ID</option>
+            <option value="title">Title</option>
+        </select>
+        <a href="" class="news-search__toggle" ng-click="newsSearch=!newsSearch">X</a>
+    </div>
+    <h1 class="page__header">News</h1>
+
+    <ul class="news-list">
+        <li ng-repeat="post in posts |  filter:searchQuery | orderBy: newsOrder" class=" news-item">
+            <div class="news__title ">
+                <a class="news__title-link" href="#!/post/{{post.id}}">#{{post.id}} | {{post.title}}</a>
+            </div>
+            <div class="news__text ">
+                {{post.body}}
+            </div>
+            <div>
+                <a href="#!/post/{{post.id}}#comment" class="news__comment-btn btn ">Leave comment</a>
+            </div>
+        </li>
+    </ul>
+</div>

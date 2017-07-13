@@ -1,26 +1,40 @@
-body {
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
     font-size: 16px;
+}
+
+.wrapper {
+    min-height: 100%;
+    padding-bottom: 70px;
+}
+
+.wrapper:after{
+    display: table;
+    clear: both;
+    content: '';
 }
 
 *, *:before, *:after {
     box-sizing: border-box;
 }
 
-.testForm {
-    margin: auto;
+.form {
+    margin: 20px auto;
     padding: 25px 15px;
     width: 550px;
     border: 1px solid steelblue;
     border-radius: 10px;
 }
 
-.testForm__title {
+.form__title {
     font-size: 32px;
     text-align: center;
     font-weight: bold;
     margin: 0  0 45px;
 }
-.testForm-block {
+.form-block {
     margin: 20px 0;
 }
 input {
@@ -38,13 +52,15 @@ label {
     display: block;
 }
 
-button {
-    padding: 20px;
-    border: 2px solid steelblue;
-    border-radius: 5px;
-    background: lightblue;
-    width: 100%;
+button, .btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 30px;
+    background: steelblue;
+    border: 1px solid transparent;
     font-size: 16px;
+    color: white;
+    transition: 300ms;
 }
 
 select {
@@ -57,7 +73,205 @@ select {
     border: 1px solid lightgrey;
 }
 
+textarea {
+    width: 100%;
+    border: 1px solid steelblue;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
 .ng-dirty .ng-dirty.ng-invalid{
     color: red;
     border: 1px solid red;
+}
+
+.container {
+    width: 1000px;
+    margin: auto;
+}
+
+.content {
+    margin: 20px auto;
+    padding: 30px;
+    border: 1px solid steelblue;
+    border-radius: 10px;
+}
+
+.content:after{
+    display: table;
+    clear: both;
+    content: '';
+}
+
+.footer {
+    background: steelblue;
+    padding: 20px 0;
+    color: white;
+    height: 70px;
+    margin-top: -70px;
+}
+
+.sidebar {
+    width: 30%;
+    float: left;
+}
+
+.page {
+    width: 70%;
+    float: left;
+}
+
+.sidebar-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.sidebar__link {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: steelblue;
+    font-weight: bold;
+    border-left: 5px solid transparent;
+    transition: 300ms;
+}
+.sidebar__link:hover {
+    border-left: 5px solid steelblue;
+}
+
+.news-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.news__title {
+    font-size: 32px;
+    font-weight: bold;
+    color: steelblue;
+}
+
+.news-item {
+    border-bottom: 5px solid steelblue;
+    padding: 10px 0 5px;
+    margin-bottom: 40px;
+}
+
+.news__text {
+    margin: 15px 0 25px;
+}
+
+.news__title-link {
+    text-decoration: none;
+    color: steelblue;
+}
+.news__title-link:hover {
+    background: steelblue;
+    color: white;
+}
+
+.news-comments {
+    border-top: 3px solid steelblue;
+    padding: 20px 0;
+    margin: 20px 0;
+}
+
+.page__header {
+    text-align: center;
+    border-bottom: 5px solid steelblue;
+    font-size: 48px;
+}
+
+.news-search {
+    border: 1px solid steelblue;
+    padding: 10px;
+    background: white;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    border-radius: 5px;
+}
+
+.news-search__title {
+    text-align: center;
+    color: steelblue;
+    font-weight: bold;
+}
+
+.news-search__toggle {
+    text-decoration: none;
+    color: steelblue;
+    font-weight: bold;
+    
+}
+
+.news-search .news-search__toggle {
+position: absolute;
+top: 10px;
+right:10px;
+}
+
+
+.header {
+    background: steelblue;
+    color: white;
+}
+
+.header:after{
+    display: table;
+    clear: both;
+    content: '';
+}
+
+
+.header-greet {
+    padding: 10px 30px;
+    float: right;
+}
+
+.nav {
+    float: left;
+}
+
+.nav-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.nav__item {
+    display: inline-block;
+}
+
+.nav__link {
+    color: white;
+    text-decoration: none;
+    font-weight:bold;
+    padding: 10px 30px;
+    display: block;
+    transition: 300ms;
+}
+
+.nav__link:hover {
+    background: white;
+    color: steelblue;
+}
+
+
+.btn:hover {
+    background: transparent;
+    border: 1px solid steelblue;
+    color: steelblue;
+}
+
+
+.to-reg {
+    margin: 10px 0;
+}
+
+.to-reg__link {
+    color: steelblue;
+    text-decoration: none;
+    font-weight: bold;
 }

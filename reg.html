@@ -1,0 +1,47 @@
+<form class="form" name="regForm" ng-controller="formCtrl" ng-submit="submitForm()" novalidate>
+    <div class="form__title">
+        Registration
+    </div>
+    <div class="form-block">
+        <label for="login">Login {{login}}</label>
+
+        <input type="text" name="login" value="" ng-model="login" login-check required>
+        <div style="color: red" ng-show="regForm.login.$dirty && regForm.login.$invalid">
+            <p ng-show="regForm.login.$error.length">Type login</p>
+            <p ng-show="regForm.login.$error.chars">Only latin and cyryllic letters allowed</p>
+        </div>
+    </div>
+    <div class="form-block">
+        <label for="pass">Password ({{password}})</label>
+        <input type="password" name="pass" value="" ng-model="password" password ng-model="password" required/>
+        <div style="color: red" ng-show="regForm.pass.$dirty && regForm.pass.$invalid">
+            <p ng-show="regForm.pass.$error.length">Password is too short</p>
+        </div>
+    </div>
+    <div class="form-block">
+        <label for="passConfirm">Confirm password ({{passwordConfirm}})</label>
+        <input type="password" name="passConfirm" ng-model="passwordConfirm" password value="" comparing compare-to="password" required/>
+        <div style="color: red" ng-show="regForm.passConfirm.$dirty && regForm.passConfirm.$invalid">
+            <p ng-show="regForm.passConfirm.$error.compare">Confirm the password</p>
+        </div>
+    </div>
+    <div class=" regForm-block">
+        <label for="phoneCountry">Phone code (country): ({{phoneCode}})</label>
+        <select name="phoneCountry" ng-model="phoneCountry" ng-change="selectPhoneCode()" required>
+                <option value="ua">Ukraine</option>
+                <option value="ru">Russia</option>
+                <option value="be">Belarus</option>
+                <option value="po">Poland</option>
+                <option value="ro">Romania</option>
+                <option value="md">Moldova</option>
+            </select>
+    </div>
+    <div class="form-block">
+        <label for="phone">Phone number ({{phoneNumber}})</label>
+        <input name="phone" value="" ng-model="phoneNumber" ng-keydown="phoneInput($event)" ng-change="phoneChange('{{phoneNumber}}')" phone-number required/>
+        <div style="color: red" ng-show="regForm.phone.$dirty && regForm.phone.$invalid">
+            <p ng-show="regForm.phone.$error.length">Phone number is too short</p>
+        </div>
+    </div>{{test}}
+    <button type="submit" ng-disabled="regForm.$invalid">Submit</button>
+</form>
